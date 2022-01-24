@@ -1,0 +1,35 @@
+#Answer 1
+
+def two_sum(nums,target):
+    d = {}
+    for n,x in enumerate(nums):
+        try:
+            return [d[x], n]
+        except KeyError:
+            d.setdefault(target - x,n)
+
+nums = [2,7,11,15]
+target = 9
+print(two_sum(nums,target))
+
+
+
+#Answer 2
+marks = {}
+n = int(input())
+for x in range(n):
+    name = input()
+    mark = float(input())
+    
+    if mark in marks:
+        marks[mark].append(name)
+    else:
+        marks[mark] = [name]
+        
+all_marks = list(set(marks.keys()))
+all_marks.sort()
+names_ordered = marks[all_marks[1]]
+names_ordered.sort()
+
+for name in names_ordered:
+    print(name)
